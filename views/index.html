@@ -1,9 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>DELI-VERY</title>
+        <title>COFF's kaffebar</title>
+        <meta charset="utf-8"/>
     </head>
     <body>
-        <h1>Hello World!!!</h1>
+        <main>
+            <h1>Välkommen till COFF's kaffebar</h1>
+            <section>
+                <h3>Val av kaffe</h3>
+                    <p>Välj typ av kaffe:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><h3>Cappuccino</h3></th>
+                            <th><h3>Espresso</h3></th>
+                            <th><h3>Nobelt bryggkaffe</h3></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="/img/cappuccino.jpg", alt="Cappuccino", title="Cappuccino", widht=175px, height=175px></td>    <!-- Bild av cappuccino -->
+                            <td><img src="/img/espresso.jpg", alt="Espresso", title="Espresso", widht=175px, height=175px></td>   <!-- Bild av espresso -->
+                            <td><img src="/img/bryggkaffe.jpg", alt="Bryggkaffe", title="Bryggkaffe, width="175px, height="175px"></td>  <!-- Bild av bryggkaffe -->
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                <dl>
+                                    <dt>Cappuccino</dt>
+                                        <dd>- Sojamjölk</dd>
+                                        <dd>- Havremjölk</dd>
+                                        <dd>- Mandelmjölk</dd>
+                                </dl>
+                            </td>
+                            <td>
+                                <dl>
+                                    <dt>Espresso</dt>
+                                        <dd>- Enkel</dd>
+                                        <dd>- Doppio</dd>
+                                        <dd>- Triplo</dd>
+                                </dl>
+                            </td>
+                            <td>
+                                <dl>
+                                    <dt>Bryggkaffe</dt>
+                                        <dd>- Mellanrost</dd>
+                                        <dd>- Mörkrost</dd>
+                                        <dd>- Extra mörkrost</dd>
+                                </dl>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section id="Contact">
+                <h3>Leveransinformation</h3>
+                    <p>Namn- och adressuppgifter:</p>
+                        <form>
+                            <p><label for="fnln">För- och efternamn:</label><br>
+                            <input type="text" id="fnln" name="name" maxlength="50" required="required" placeholder="Ange ditt för- och efternamn"> <!-- attributet maxlength anger hur lång inputen max får vara -->
+                            </p>
+                            <p><label for="email">E-postadress:</label><br>
+                            <input type="email" id="email" name="em" required="required" placeholder="Ange din e-postadress">
+                            </p>
+                            <p><label for="address">Leveransadress:</label><br>
+                            <input type="text" id="address" name="adress" required="required" placeholder="Ange leveransadress">
+                            </p>
+                            <p><label for="number">Gatunummer:</label><br>
+                            <input type="number" id="number" name="number" required="required" placeholder="Ange gatunummer">
+                            </p>
+                            <p><label for="paymethod">Betalning:</label><br></p>
+                            <select id="paymethod" name="payment">
+                            <option selected="selected">Betala med kort</option> <!-- Förvalt alternativ -->
+                            <option>Kreditfaktura</option>
+                            <option>Medlemspoäng</option>
+                            <option>Presentkort</option>
+                            </select>
+                        </form>
+            </section>
+        </main>
+        <hr>                                        <!-- Horizontal line -->
+        <footer>COFF &copy;</footer>                <!-- copyright sign -->
     </body>
 </html>
