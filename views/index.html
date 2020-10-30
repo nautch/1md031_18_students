@@ -9,7 +9,7 @@
     <body>
         <main>
             <h1>Välkommen till COFF's kaffebar</h1>
-            <section>
+            <section id="menyval">
                 <h3>Kaffemeny</h3>
                     <p>Välj typ av kaffe:</p>
                 <table>
@@ -17,7 +17,7 @@
                         <tr>
                             <th><h3>Cappuccino</h3></th>
                             <th><h3>Espresso</h3></th>
-                            <th><h3>Nobelt bryggkaffe</h3></th>
+                            <th><h3>Bryggkaffe</h3></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,25 +31,25 @@
                             <td>
                                 <dl>
                                     <dt>Cappuccino</dt>
-                                        <dd>- Sojamjölk</dd>
-                                        <dd>- Havremjölk</dd>
-                                        <dd>- Mandelmjölk</dd>
+                                        <dd class="kaffeval">- Sojamjölk</dd>
+                                        <dd class="kaffeval">- Havremjölk</dd>
+                                        <dd class="kaffeval">- Mandelmjölk</dd>
                                 </dl>
                             </td>
                             <td>
                                 <dl>
                                     <dt>Espresso</dt>
-                                        <dd>- Enkel</dd>
-                                        <dd>- Doppio</dd>
-                                        <dd>- Triplo</dd>
+                                        <dd class="kaffeval">- Enkel</dd>
+                                        <dd class="kaffeval">- Doppio</dd>
+                                        <dd class="kaffeval">- Triplo</dd>
                                 </dl>
                             </td>
                             <td>
                                 <dl>
                                     <dt>Bryggkaffe</dt>
-                                        <dd>- Mellanrost</dd>
-                                        <dd>- Mörkrost</dd>
-                                        <dd>- Extra mörkrost</dd>
+                                        <dd class="kaffeval">- Mellanrost</dd>
+                                        <dd class="kaffeval">- Mörkrost</dd>
+                                        <dd class="kaffeval">- Extra mörkrost</dd>
                                 </dl>
                             </td>
                         </tr>
@@ -57,9 +57,9 @@
                 </table>
             </section>
 
-            <section id="Contact">
+            <section id="kontaktinfo">
                 <h3>Leveransinformation</h3>
-                    <p>Namn- och adressuppgifter:</p>
+                    <p>Namn- och adressuppgift  er:</p>
                         <form>
                             <p><label for="fnln">För- och efternamn:</label><br>
                             <input type="text" id="fnln" name="name" maxlength="50" required="required" placeholder="Ange ditt för- och efternamn"> <!-- attributet maxlength anger hur lång inputen max får vara -->
@@ -74,23 +74,32 @@
                             <input type="number" id="number" name="number" required="required" placeholder="Ange gatunummer">
                             </p>
                             <p><label for="paymethod">Betalning:</label><br></p>
-                            <select id="paymethod" name="payment">
+                        <select id="paymethod" name="payment">
                             <option selected="selected">Betala med kort</option> <!-- Attribute Selected, förvalt alternativ -->
                             <option>Swish</option>
                             <option>Kreditfaktura</option>
                             <option>Medlemspoäng</option>
                             <option>Presentkort</option>
-                            </select>
+                        </select>
+                        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                        <div id="card">
+                            <label class="cardlabels" for="cardnumber">Kortnummer:</label><br>
+                            <input id="cardnumber" type="number" required="required" name="cardnumber" placeholder="XXXX XXXX XXXX XXXX"><br>
+                            <label class="cardlabels" for="expirydate">Giltighetstid:</label><br>
+                            <input id="expirydate" type="number" required="required" name="expirydate" placeholder="MM/YY" max="999">
+                            <label class="cardlabels" for="cvc">CVC:</label><br>
+                            <input id="cvc" type="number" required="required" name="cvc" placeholder="XXX">
+                        </div>
+                        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
                             <p><label for="gender">Ange kön:</label></p>
-                            <p><input type="radio" id="ange" name="gender" value="ange" checked="checked"><label for="ange">  </label></p>
                             <p><input type="radio" id="man" name="gender" value="man"><label for="man"> Man</label></p>
                             <p><input type="radio" id="kvinna" name="gender" value="kvinna"><label for="kvinna"> Kvinna</label></p>
-                            <p><input type="radio" id="annat" name="gender" value="annat"><label for="annat"> Annat</label></p>
+                            <p><input type="radio" id="annat" name="gender" value="annat" checked="checked"><label for="annat"> Annat</label></p>
 
                         </form>
 
-                <button type="submit"><img src="/img/sendicon.png" height="25px" width="25px"> Bekräfta din kaffeorder!</button>
+                <button class="sendbutton" type="submit"><img src="/img/sendicon.png" height="25px" width="25px"> Bekräfta din kaffeorder!</button>
             </section>
         </main>
         <hr>                                                        <!-- Horizontal line -->
