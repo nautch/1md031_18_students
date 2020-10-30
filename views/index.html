@@ -3,12 +3,14 @@
     <head>
         <title>COFF's kaffebar</title>
         <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="icon" href="/img/favicon.png" type="image" sizes="16x16">
     </head>
     <body>
         <main>
             <h1>Välkommen till COFF's kaffebar</h1>
             <section>
-                <h3>Val av kaffe</h3>
+                <h3>Kaffemeny</h3>
                     <p>Välj typ av kaffe:</p>
                 <table>
                     <thead>
@@ -24,7 +26,7 @@
                             <td><img src="/img/espresso.jpg", alt="Espresso", title="Espresso", widht=175px, height=175px></td>   <!-- Bild av espresso -->
                             <td><img src="/img/bryggkaffe.jpg", alt="Bryggkaffe", title="Bryggkaffe, width="175px, height="175px"></td>  <!-- Bild av bryggkaffe -->
                         </tr>
-                        
+
                         <tr>
                             <td>
                                 <dl>
@@ -54,7 +56,7 @@
                     </tbody>
                 </table>
             </section>
-            
+
             <section id="Contact">
                 <h3>Leveransinformation</h3>
                     <p>Namn- och adressuppgifter:</p>
@@ -73,15 +75,25 @@
                             </p>
                             <p><label for="paymethod">Betalning:</label><br></p>
                             <select id="paymethod" name="payment">
-                            <option selected="selected">Betala med kort</option> <!-- Förvalt alternativ -->
+                            <option selected="selected">Betala med kort</option> <!-- Attribute Selected, förvalt alternativ -->
+                            <option>Swish</option>
                             <option>Kreditfaktura</option>
                             <option>Medlemspoäng</option>
                             <option>Presentkort</option>
                             </select>
+
+                            <p><label for="gender">Ange kön:</label></p>
+                            <p><input type="radio" id="ange" name="gender" value="ange" checked="checked"><label for="ange">  </label></p>
+                            <p><input type="radio" id="man" name="gender" value="man"><label for="man"> Man</label></p>
+                            <p><input type="radio" id="kvinna" name="gender" value="kvinna"><label for="kvinna"> Kvinna</label></p>
+                            <p><input type="radio" id="annat" name="gender" value="annat"><label for="annat"> Annat</label></p>
+
                         </form>
+
+                <button type="submit"><img src="/img/sendicon.png" height="25px" width="25px"> Bekräfta din kaffeorder!</button>
             </section>
         </main>
-        <hr>                                        <!-- Horizontal line -->
-        <footer>COFF &copy;</footer>                <!-- copyright sign -->
+        <hr>                                                        <!-- Horizontal line -->
+        <footer>COFF's kaffebar &copy; 2020</footer>                <!-- copyright sign -->
     </body>
 </html>
