@@ -1,0 +1,85 @@
+/* Your comment goes here */
+@import 'https://fonts.googleapis.com/css?family=Recursive';
+
+body {
+    font-family: Recursive, arial, sans-serif;
+    font-size: 1.15em;
+    max-width: 800px;
+    margin: auto;
+}
+
+.kaffeval {
+    font-weight: bolder;
+    text-align: left;
+}
+
+#menyval {
+    background-color: black;
+    color: white;
+}
+
+#kontaktinfo {
+
+}
+
+.sendbutton {
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.5s;
+}
+
+.sendbutton:hover {
+    background-color: #7cff6e;
+}
+
+.sendbutton:active {
+  background-color: #a3ff99;
+  transform: translateY(3px);
+  transition: 0.1s;
+}
+
+table {
+    width: 90%;
+    text-align: center;
+}
+
+#card {
+    margin-left: 250px;
+}
+
+#cardnumber {
+    font-size: 1.05em;
+    height: 25px;
+    width: 250px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#expirydate {
+    display: block;
+    font-size: 1.05em;
+    height: 25px;
+    width: 80px;
+    text-align: center;
+    border-radius: 5px;
+
+}
+
+#cvc {
+    display: block;
+    font-size: 1.05em;
+    height: 25px;
+    width: 55px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.cardlabels {
+    font-size: 0.8em;
+}
+
+input[type="number"]::-webkit-outer-spin-button, /* Döljer spin-box-pilarna i input type="number"-fomulären */
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
