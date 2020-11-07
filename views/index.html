@@ -3,72 +3,72 @@
     <head>
         <title>COFF's kaffebar</title>
         <meta charset="utf-8"/>
+        <!-- <link rel="stylesheet" type="text/css" href="/css/reset.css"> -->
         <link rel="stylesheet" type="text/css" href="/css/style.css">
         <link rel="icon" href="/img/favicon.png" type="image" sizes="16x16">
+        <script src="js/js_script.js"></script>
+        <script src="https://vuejs.org/js/vue.js"></script>
+        <script src="js/vue_script.js"></script>
     </head>
     <body>
         <main>
-            <h1>Välkommen till COFF's kaffebar</h1>
-            <section id="menyval">
+            <header id="header">
+                <img src="/img/headerimage.jpg" class="headerimage">
+                <h1 id="headline">Välkommen till COFF's kaffebar</h1>
+            </header>
+
+            <!-- Varför kan inte h1-taggen ligga inuti section utan att hamna bakom bilden? Ordningen verkar inte spela någon roll? -->
+
+
+            <section class="section_menyval">
                 <h3>Kaffemeny</h3>
                     <p>Välj typ av kaffe:</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th><h3>Cappuccino</h3></th>
-                            <th><h3>Espresso</h3></th>
-                            <th><h3>Bryggkaffe</h3></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><img src="/img/cappuccino.jpg", alt="Cappuccino", title="Cappuccino", widht=175px, height=175px></td>    <!-- Bild av cappuccino -->
-                            <td><img src="/img/espresso.jpg", alt="Espresso", title="Espresso", widht=175px, height=175px></td>   <!-- Bild av espresso -->
-                            <td><img src="/img/bryggkaffe.jpg", alt="Bryggkaffe", title="Bryggkaffe, width="175px, height="175px"></td>  <!-- Bild av bryggkaffe -->
-                        </tr>
 
-                        <tr>
-                            <td>
-                                <dl>
-                                    <dt>Cappuccino</dt>
-                                        <dd class="kaffeval">- Sojamjölk</dd>
-                                        <dd class="kaffeval">- Havremjölk</dd>
-                                        <dd class="kaffeval">- Mandelmjölk</dd>
-                                </dl>
-                            </td>
-                            <td>
-                                <dl>
-                                    <dt>Espresso</dt>
-                                        <dd class="kaffeval">- Enkel</dd>
-                                        <dd class="kaffeval">- Doppio</dd>
-                                        <dd class="kaffeval">- Triplo</dd>
-                                </dl>
-                            </td>
-                            <td>
-                                <dl>
-                                    <dt>Bryggkaffe</dt>
-                                        <dd class="kaffeval">- Mellanrost</dd>
-                                        <dd class="kaffeval">- Mörkrost</dd>
-                                        <dd class="kaffeval">- Extra mörkrost</dd>
-                                </dl>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="wrapper">
+                    <div class="box cappuccino">
+                        <p>Cappuccino</p>
+                        <img class="kaffebild" src="/img/cappuccino.jpg", alt="Cappuccino", title="Cappuccino", widht=175px, height=175px>
+                        <ul style="list-style-type: none;">
+                            <li>– Sojamjölk</li>
+                            <li>– Havremjölk</li>
+                            <li>– Mandelmjölk</li>
+                        </ul>
+                    </div>
+
+                    <div class="box espresso">
+                        <p>Espresso</p>
+                        <img class="kaffebild" src="/img/espresso.jpg", alt="Espresso", title="Espresso", widht=175px, height=175px>
+                        <ul style="list-style-type: none;">
+                            <li>– Enkel</li>
+                            <li>– Doppio</li>
+                            <li>– Triplo</li>
+                        </ul>
+                    </div>
+
+                    <div class="box bryggkaffe">
+                        <p>Bryggkaffe</p>
+                        <img class="kaffebild" src="/img/bryggkaffe.jpg", alt="Bryggkaffe", title="Bryggkaffe", width="175px", height="175px">
+                        <ul style="list-style-type: none;">
+                            <li>– Mellanrost</li>
+                            <li>– Mörkrost</li>
+                            <li>– Extra mörkrost</li>
+                        </ul>
+                    </div>
+                </div>
             </section>
 
-            <section id="kontaktinfo">
+            <section class="section_kontaktinfo">
                 <h3>Leveransinformation</h3>
-                    <p>Namn- och adressuppgift  er:</p>
+                    <p>Namn- och adressuppgifter:</p>
                         <form>
                             <p><label for="fnln">För- och efternamn:</label><br>
                             <input type="text" id="fnln" name="name" maxlength="50" required="required" placeholder="Ange ditt för- och efternamn"> <!-- attributet maxlength anger hur lång inputen max får vara -->
                             </p>
-                            <p><label for="email">E-postadress:</label><br>
-                            <input type="email" id="email" name="em" required="required" placeholder="Ange din e-postadress">
-                            </p>
                             <p><label for="address">Leveransadress:</label><br>
                             <input type="text" id="address" name="adress" required="required" placeholder="Ange leveransadress">
+                            </p>
+                            <p><label for="email">E-postadress:</label><br>
+                            <input type="email" id="email" name="em" required="required" placeholder="Ange din e-postadress">
                             </p>
                             <p><label for="number">Gatunummer:</label><br>
                             <input type="number" id="number" name="number" required="required" placeholder="Ange gatunummer">
@@ -81,7 +81,7 @@
                             <option>Medlemspoäng</option>
                             <option>Presentkort</option>
                         </select>
-                        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ->
                         <div id="card">
                             <label class="cardlabels" for="cardnumber">Kortnummer:</label><br>
                             <input id="cardnumber" type="number" required="required" name="cardnumber" placeholder="XXXX XXXX XXXX XXXX"><br>
@@ -90,16 +90,17 @@
                             <label class="cardlabels" for="cvc">CVC:</label><br>
                             <input id="cvc" type="number" required="required" name="cvc" placeholder="XXX">
                         </div>
-                        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                        < @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
-                            <p><label for="gender">Ange kön:</label></p>
-                            <p><input type="radio" id="man" name="gender" value="man"><label for="man"> Man</label></p>
-                            <p><input type="radio" id="kvinna" name="gender" value="kvinna"><label for="kvinna"> Kvinna</label></p>
-                            <p><input type="radio" id="annat" name="gender" value="annat" checked="checked"><label for="annat"> Annat</label></p>
-
+                            <p class="genderTitle"><label for="gender">Ange kön:</label></p>
+                            <p class="gender"><input type="radio" id="man" name="gender" value="man"><label for="man"> Man </label></p>
+                            <p class="gender"><input type="radio" id="kvinna" name="gender" value="kvinna"><label for="kvinna"> Kvinna </label></p>
+                            <p class="gender"><input type="radio" id="nonbinary" name="gender" value="nonbinary"><label for="nonbinary"> Ickebinär </label></p>
+                            <p class="gender"><input type="radio" id="annat" name="gender" value="annat" checked="checked"><label for="annat"> Annat </label></p>
                         </form>
-
-                <button class="sendbutton" type="submit"><img src="/img/sendicon.png" height="25px" width="25px"> Bekräfta din kaffeorder!</button>
+            <div class="bottombutton">
+                <button id="sendbutton" type="submit"><img src="/img/sendicon.png" height="25px" width="25px"> Bekräfta din kaffeorder! </button>
+            </div>
             </section>
         </main>
         <hr>                                                        <!-- Horizontal line -->
