@@ -98,12 +98,12 @@ body {
 }
 
 #sendbutton:hover {
-    background-image: linear-gradient(to right, #d9b38c 0%, #ac7339 51%, #86592d 100%);
+    background-color: #86592d;
     transition: 0.5s;
 }
 
 #sendbutton:active {
-  background-image: linear-gradient(to right, #ac7339 0%, #d9b38c 51%, #ac7339 100%);
+  background-color: #ac7339;
   transform: translateY(1px);
   transition: 0.5s;
 
