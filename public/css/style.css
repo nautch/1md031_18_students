@@ -32,8 +32,8 @@ body {
 
 .wrapper {
     display: grid;
-    grid-gap: 1.9em;
-    grid-template-columns: 200px 200px 225px;
+    grid-gap: .5em;
+    grid-template-columns: 225px 225px 225px;
     padding-bottom: 3em;
 }
 
@@ -41,14 +41,25 @@ body {
     border-radius: 0.7em;
 }
 
-.box p {
+.coffeeTitle {
     text-align: center;
     text-transform: uppercase;
+    margin-top: -.5em;
 }
 
 .box ul {
-    margin-left: -1.5em;
+    margin-left: -.5em;
+    margin-top: 1em;
     font-weight: bold;
+}
+
+.box li {
+    margin-top: 0.5em;
+}
+
+.kaffebild {
+    width: 175px;
+    height: 175px;
 }
 
 .section_menyval {
@@ -72,8 +83,9 @@ body {
     border-bottom-right-radius: 0.7em;
 }
 
-.section_kontaktinfo * {
-    margin-left: 0.8em;
+.section_kontaktinfo {
+    padding-left: 0.8em;
+    padding-right: 0.8em;
 }
 
 .section_kontaktinfo {
@@ -84,25 +96,36 @@ body {
     width: 14em;
 }
 
+#checked {
+    font-size: 0.9em;
+    text-transform: uppercase;
+    text-align: center;
+}
 
-.bottombutton {
+.checkedCoffee {
+    margin-left: 7.5em;
+}
+
+
+
+.bottomButton {
     text-align: center;
     margin-bottom: 25px;
 }
 
 
-#sendbutton {
+#orderButton {
     cursor: pointer;
     border-radius: 4px;
     transition: 0.5s;
 }
 
-#sendbutton:hover {
+#orderButton:hover {
     background-color: #86592d;
     transition: 0.5s;
 }
 
-#sendbutton:active {
+#orderButton:active {
   background-color: #ac7339;
   transform: translateY(1px);
   transition: 0.5s;

@@ -3,36 +3,77 @@
     <head>
         <title>COFF's kaffebar</title>
         <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/deli-very.css">
+        <script src="/socket.io/socket.io.js" defer></script>
+        <script src="/vue/vue.js" defer></script>
         <!-- <link rel="stylesheet" type="text/css" href="/css/reset.css"> -->
         <link rel="stylesheet" type="text/css" href="/css/style.css">
         <link rel="icon" href="/img/favicon.png" type="image" sizes="16x16">
-        <script src="/js/js_script.js"></script>
-        <script src="https://vuejs.org/js/vue.js"></script>
-        <script src="/js/vue_script.js"></script>
+        <script src="/js/menu.js" defer></script>
+        <script src="/js/js_script.js" defer></script>
+        <script src="/js/vue_script.js" defer></script>
     </head>
     <body>
-        <main>
-            <header id="header">
-                <img src="/img/headerimage.jpg" class="headerimage">
-                <h1 id="headline">Välkommen till COFF's kaffebar</h1>
-            </header>
 
-            <!-- Varför kan inte h1-taggen ligga inuti section utan att hamna bakom bilden? Ordningen verkar inte spela någon roll? -->
+        <header id="header">
+            <img src="/img/headerimage.jpg" class="headerimage"/>
+            <h1 id="headline"></h1>
+        </header>
 
-
+        <main id="vue">
             <section class="section_menyval">
-                <h3>Kaffemeny</h3>
-                    <p>Välj typ av kaffe:</p>
+                <h3 id="coffeeMenu"></h3>
+                    <p id="menuChoice"></p>
 
                 <div class="wrapper">
+                    <div class="box" v-for="coffee in coffeeList">
+                        <h3 class="coffeeTitle">
+                            {{ coffee.name }}
+                        </h3>
+
+                        <img class="kaffebild " :src = "coffee.image">
+                        <ul>
+                            <li>
+                                {{ coffee.choice1 }}
+                            </li>
+                            <li>
+                                {{ coffee.choice2 }}
+                            </li>
+                            <li>
+                                {{ coffee.choice3 }}
+                            </li>
+                        </ul>
+
+                        <label for="checkedCoffee"><p id="checked">Välj {{coffee.name}}</p></label>
+                        <input type="checkbox" class="checkedCoffee" :value=coffee.name name="checkbox">
+
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!--
                     <div class="box cappuccino">
                         <p>Cappuccino</p>
                         <img class="kaffebild" src="/img/cappuccino.jpg", alt="Cappuccino", title="Cappuccino", widht=175px, height=175px>
                         <ul style="list-style-type: none;">
-                            <li>– Sojamjölk</li>
-                            <li>– Havremjölk</li>
-                            <li>– Mandelmjölk</li>
+                            <li>– Enkel</li>
+                            <li>– Doppio</li>
+                            <li>– Triplo</li>
                         </ul>
+                        </div>
                     </div>
 
                     <div class="box espresso">
@@ -54,33 +95,42 @@
                             <li>– Extra mörkrost</li>
                         </ul>
                     </div>
+                -->
                 </div>
             </section>
 
+
             <section class="section_kontaktinfo">
 
+                <!--
                 <div id="js">
-                    {{ arbitraryVariableName }}
+
+                    <li v-for="hotdrink in hotdrinks">
+                        {{ hotdrink.name }}
+                    </li>
                 </div>
+                -->
 
                 <h3>Leveransinformation</h3>
                     <p>Namn- och adressuppgifter:</p>
-                        <form>
+                        <form id="form">
                             <p><label for="fnln">För- och efternamn:</label><br>
                             <input type="text" id="fnln" name="name" maxlength="50" required="required" placeholder="Ange ditt för- och efternamn"> <!-- attributet maxlength anger hur lång inputen max får vara -->
                             </p>
+                            <!--
                             <p><label for="address">Leveransadress:</label><br>
                             <input type="text" id="address" name="adress" required="required" placeholder="Ange leveransadress">
-                            </p>
-                            <p><label for="email">E-postadress:</label><br>
-                            <input type="email" id="email" name="em" required="required" placeholder="Ange din e-postadress">
                             </p>
                             <p><label for="number">Gatunummer:</label><br>
                             <input type="number" id="number" name="number" required="required" placeholder="Ange gatunummer">
                             </p>
-                            <p><label for="paymethod">Betalning:</label><br></p>
+                            -->
+                            <p><label for="email">E-postadress:</label><br>
+                            <input type="email" id="email" name="em" required="required" placeholder="Ange din e-postadress">
+                            </p>
+                            <p><label for="paymethod">Jag vill betala med:</label></p>
                         <select id="paymethod" name="payment">
-                            <option selected="selected">Betala med kort</option> <!-- Attribute Selected, förvalt alternativ -->
+                            <option selected="selected">Betalkort</option> <!-- Attribute Selected, förvalt alternativ -->
                             <option>Swish</option>
                             <option>Kreditfaktura</option>
                             <option>Medlemspoäng</option>
@@ -100,12 +150,38 @@
                             <p class="genderTitle"><label for="gender">Ange kön:</label></p>
                             <p class="gender"><input type="radio" id="man" name="gender" value="man"><label for="man"> Man </label></p>
                             <p class="gender"><input type="radio" id="kvinna" name="gender" value="kvinna"><label for="kvinna"> Kvinna </label></p>
-                            <p class="gender"><input type="radio" id="nonbinary" name="gender" value="nonbinary"><label for="nonbinary"> Ickebinär </label></p>
+                            <p class="gender"><input type="radio" id="nonbinary" name="gender" value="ickebinär"><label for="nonbinary"> Ickebinär </label></p>
                             <p class="gender"><input type="radio" id="annat" name="gender" value="annat" checked="checked"><label for="annat"> Annat </label></p>
                         </form>
-            <div class="bottombutton">
-                <button id="sendbutton" type="submit"><img src="/img/sendicon.png" height="25px" width="25px"> Bekräfta din kaffeorder! </button>
-            </div>
+
+                        <p>Markera din leveransadress på kartan:</p>
+
+                        <div class="view-box">
+                          <div id="dots" v-on:click="displayOrder">
+                              <div v-for="(order, key) in orders"
+                                   v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+                                      {{key}}
+                              </div>
+                          </div>
+                        </div>
+                        <!--
+                        <div class="view-box">
+                          <div id="dots" v-on:click="addOrder">
+                              <div v-for="(order, key) in orders"
+                                   v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+                                      {{key}}
+                              </div>
+                          </div>
+                        </div>
+
+                    <div class="bottomButton">
+                        <button id="orderButton" v-on:click="sendOrder()" type="submit"><img src="/img/sendicon.png" height="25px" width="25px"> Bekräfta din kaffeorder! </button>
+                    </div>
+                    -->
+                    <div class="bottomButton">
+                        <button id="orderButton" v-on:click="addOrder()" type="submit"><img src="/img/sendicon.png" height="25px" width="25px"> Bekräfta din kaffeorder! </button>
+                    </div>
+
             </section>
         </main>
         <hr>                                                        <!-- Horizontal line -->
