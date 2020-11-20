@@ -47,6 +47,10 @@ body {
     margin-top: -.5em;
 }
 
+#checked:hover {
+    font-weight: bolder;
+}
+
 .box ul {
     margin-left: -.5em;
     margin-top: 1em;
@@ -129,6 +133,14 @@ body {
   background-color: #ac7339;
   transform: translateY(1px);
   transition: 0.5s;
+
+}
+
+#alertField {
+    text-align: center;
+    padding-bottom: 1em;
+    font-weight: bold;
+    color: red;
 
 }
 

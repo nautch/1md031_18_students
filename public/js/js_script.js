@@ -4,22 +4,21 @@ document.getElementById("headline").innerHTML = "Välkommen till COFF's kaffebar
 document.getElementById("coffeeMenu").innerHTML = "Kaffemeny";
 document.getElementById("menuChoice").innerHTML = "Välj typ av kaffe:";
 
-function getDetails () { //loopar igenom alla input-fields
+function getDetails () {    //  loopar igenom alla input-fields och returnerar dessa i valueArray
     var valueArray = [];
     var numberOfInputs = document.getElementById('form').elements.length;
     for (var i = 0; i < numberOfInputs; i++) {
         var x = document.getElementById('form').elements[i];
-        if (x.type!=="radio") {
+        if (x.type!=="radio") {     //  Kollar om input type är skilt från radio, och pushar sedan radio-inputs manuellt nedan
             valueArray.push(x.value);
         }
     }
     valueArray.push(document.querySelector('input[type="radio"]:checked').value); // lägger till vald value från radiobuttons manuellt efter loopen
     return valueArray;
 };
-
 function getOrder () {
     var coffeeArray = [];
-    var checkBoxes = document.getElementsByName('checkbox');
+    var checkBoxes = document.getElementsByName('checkBox');
     for (var i = 0; i < checkBoxes.length; i++) { // Kontrollerar vilka checkboxes som är ibockade, och adderar då värdet till array!!
         if (checkBoxes[i].checked) {
             coffeeArray.push(checkBoxes[i].value);

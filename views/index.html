@@ -15,23 +15,19 @@
         <script src="/js/vue_script.js" defer></script>
     </head>
     <body>
-
         <header id="header">
             <img src="/img/headerimage.jpg" class="headerimage"/>
             <h1 id="headline"></h1>
         </header>
-
         <main id="vue">
             <section class="section_menyval">
                 <h3 id="coffeeMenu"></h3>
                     <p id="menuChoice"></p>
-
                 <div class="wrapper">
                     <div class="box" v-for="coffee in coffeeList">
                         <h3 class="coffeeTitle">
                             {{ coffee.name }}
                         </h3>
-
                         <img class="kaffebild " :src = "coffee.image">
                         <ul>
                             <li>
@@ -44,73 +40,13 @@
                                 {{ coffee.choice3 }}
                             </li>
                         </ul>
-
                         <label for="checkedCoffee"><p id="checked">Välj {{coffee.name}}</p></label>
-                        <input type="checkbox" class="checkedCoffee" :value=coffee.name name="checkbox">
-
-
+                        <input type="checkbox" class="checkedCoffee" :value=coffee.name name="checkBox">
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <!--
-                    <div class="box cappuccino">
-                        <p>Cappuccino</p>
-                        <img class="kaffebild" src="/img/cappuccino.jpg", alt="Cappuccino", title="Cappuccino", widht=175px, height=175px>
-                        <ul style="list-style-type: none;">
-                            <li>– Enkel</li>
-                            <li>– Doppio</li>
-                            <li>– Triplo</li>
-                        </ul>
-                        </div>
-                    </div>
-
-                    <div class="box espresso">
-                        <p>Espresso</p>
-                        <img class="kaffebild" src="/img/espresso.jpg", alt="Espresso", title="Espresso", widht=175px, height=175px>
-                        <ul style="list-style-type: none;">
-                            <li>– Enkel</li>
-                            <li>– Doppio</li>
-                            <li>– Triplo</li>
-                        </ul>
-                    </div>
-
-                    <div class="box bryggkaffe">
-                        <p>Bryggkaffe</p>
-                        <img class="kaffebild" src="/img/bryggkaffe.jpg", alt="Bryggkaffe", title="Bryggkaffe", width="175px", height="175px">
-                        <ul style="list-style-type: none;">
-                            <li>– Mellanrost</li>
-                            <li>– Mörkrost</li>
-                            <li>– Extra mörkrost</li>
-                        </ul>
-                    </div>
-                -->
                 </div>
             </section>
 
-
             <section class="section_kontaktinfo">
-
-                <!--
-                <div id="js">
-
-                    <li v-for="hotdrink in hotdrinks">
-                        {{ hotdrink.name }}
-                    </li>
-                </div>
-                -->
-
                 <h3>Leveransinformation</h3>
                     <p>Namn- och adressuppgifter:</p>
                         <form id="form">
@@ -136,6 +72,7 @@
                             <option>Medlemspoäng</option>
                             <option>Presentkort</option>
                         </select>
+
                         <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ ->
                         <div id="card">
                             <label class="cardlabels" for="cardnumber">Kortnummer:</label><br>
@@ -148,13 +85,13 @@
                         < @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
                             <p class="genderTitle"><label for="gender">Ange kön:</label></p>
-                            <p class="gender"><input type="radio" id="man" name="gender" value="man"><label for="man"> Man </label></p>
-                            <p class="gender"><input type="radio" id="kvinna" name="gender" value="kvinna"><label for="kvinna"> Kvinna </label></p>
-                            <p class="gender"><input type="radio" id="nonbinary" name="gender" value="ickebinär"><label for="nonbinary"> Ickebinär </label></p>
-                            <p class="gender"><input type="radio" id="annat" name="gender" value="annat" checked="checked"><label for="annat"> Annat </label></p>
+                            <p class="gender"><input type="radio" id="man" name="gender" value="Man"><label for="man"> Man </label></p>
+                            <p class="gender"><input type="radio" id="kvinna" name="gender" value="Kvinna"><label for="kvinna"> Kvinna </label></p>
+                            <p class="gender"><input type="radio" id="nonbinary" name="gender" value="Ickebinär"><label for="nonbinary"> Ickebinär </label></p>
+                            <p class="gender"><input type="radio" id="annat" name="gender" value="Annat" checked="checked"><label for="annat"> Annat </label></p>
                         </form>
 
-                        <p>Markera din leveransadress på kartan:</p>
+                        <h3>Markera din leveransadress på kartan:</h3>
 
                         <div class="view-box">
                           <div id="dots" v-on:click="displayOrder">
@@ -164,25 +101,25 @@
                               </div>
                           </div>
                         </div>
-                        <!--
-                        <div class="view-box">
-                          <div id="dots" v-on:click="addOrder">
-                              <div v-for="(order, key) in orders"
-                                   v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
-                                      {{key}}
-                              </div>
-                          </div>
-                        </div>
 
-                    <div class="bottomButton">
-                        <button id="orderButton" v-on:click="sendOrder()" type="submit"><img src="/img/sendicon.png" height="25px" width="25px"> Bekräfta din kaffeorder! </button>
-                    </div>
-                    -->
                     <div class="bottomButton">
                         <button id="orderButton" v-on:click="addOrder()" type="submit"><img src="/img/sendicon.png" height="25px" width="25px"> Bekräfta din kaffeorder! </button>
                     </div>
 
+                    <div id="alertField">
+
+                    </div>
             </section>
+            <h3> Orderbekräftelse: </h3>
+            <h4 v-for="order in orderDetails">
+                <ul>
+                    <li>{{ order }}</li>
+            </h4>
+            <div id="orderConfirmation" v-for="item in customerDetails">
+                <ul>
+                    – {{ item }}
+                </ul>
+            </div>
         </main>
         <hr>                                                        <!-- Horizontal line -->
         <footer>COFF's kaffebar &copy; 2020</footer>                <!-- copyright sign -->

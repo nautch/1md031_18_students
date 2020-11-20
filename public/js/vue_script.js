@@ -15,27 +15,52 @@ var vm = new Vue({
     el: '#vue',
     data: {
         coffeeList : hotDrinks,
-        orders: {},
-        customerDetails: [],
-        orderDetails: [],
-        orderNumber: 0,
+        orders: {},                 //  Orderobjekt
+        customerDetails: [],        //  Array med alla inputvalues från formulären
+        orderDetails: [],           // Array med orderinnehållet
     },
     methods: {
-        getNext: function () {
-            this.orderNumber += 1;
-            return this.orderNumber;
+        isFilled: function () {
+            if (!document.getElementById('fnln').value &&
+                !document.getElementById('email').value){
+                    document.getElementById('alertField').innerHTML ="Vänligen fyll i för- och efternamn! <br>"
+                    + "och din mailadress!";
+                    return false;
+            }
+            else if (!document.getElementById('fnln').value){   // Kontrollerar att för- och efternamn fyllts i
+                document.getElementById('alertField').innerHTML ="Vänligen fyll i ditt för- och efternamn";
+                    return false;
+            }
+            else if (!document.getElementById('email').value){  //  Kontrollerar att mailadress fyllts i
+                document.getElementById('alertField').innerHTML ="Vänligen fyll i din mailadress!";
+                    return false;
+            }
+            else if (!document.querySelector('input[class="checkedCoffee"]:checked')){  // Kontrollerar att kaffe valts
+                document.getElementById('alertField').innerHTML ="Vänligen lägg till kaffe på din order!";
+                return false;
+            }
+            else if (Object.keys(this.orders).length === 0) {   //  Kontrollerar så att en markering på kartan är satt
+                document.getElementById('alertField').innerHTML ="Vänligen ange leveransadress på kartan!";
+                return false;
+            }
+            else {
+                document.getElementById('alertField').innerHTML="";
+                return true;
+            }
         },
         addOrder: function (event) {
-            this.orderDetails = getOrder();
-            this.customerDetails = getDetails();
-            var deliveryLocation = this.orders.T.details;
-            socket.emit("addOrder", {orderId: this.getNext(),
-                         details: deliveryLocation,
-                         orderItems: this.orderDetails,
-                         customerInformation: this.customerDetails,
-            });
+            if (this.isFilled()) {                  //  Funktion som bara kör addOrder() om samtliga inputs är ifyllda
+                this.orderDetails = getOrder();
+                this.customerDetails = getDetails();
+                var deliveryLocation = this.orders.T.details;
+                socket.emit("addOrder", {           //  addOrder() emitar till servern (dispatcher.html)
+                             details: deliveryLocation,
+                             orderItems: this.orderDetails,
+                             customerInformation: this.customerDetails,
+                });
+            }
         },
-        displayOrder: function (event) {
+        displayOrder: function (event) {            //  Funktion som displayar vald kartmarkering och uppdaterar genom att skriva över befintlig markering
             var T = {
                 x: event.currentTarget.getBoundingClientRect().left,
                 y: event.currentTarget.getBoundingClientRect().top
@@ -48,8 +73,5 @@ var vm = new Vue({
                 }}
                 }
         }
-
-    },//methods
-
-
-}); //new Vue
+    },
+});
