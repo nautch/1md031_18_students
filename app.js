@@ -41,7 +41,7 @@ function Data() {
 */
 Data.prototype.addOrder = function (order) {
   //Store the order in an "associative array" with orderId as key
-  var lastOrder = Object.keys(this.orders).reduce( function (last, next) {
+  var lastOrder = Object.keys(this.orders).reduce( function (last, next) {  //  Lade in getNext() här för att hantera orderId på serversidan
          return Math.max(last, next);
        }, 0);
        order.orderId = lastOrder + 1;
